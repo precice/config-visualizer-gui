@@ -44,6 +44,7 @@ packages=["preciceconfigvisualizer.gui"]
 "share/applications" = ["data/org.precice.config_visualizer.desktop"]
 "share/metainfo" = ["data/org.precice.config_visualizer.metainfo.xml"]
 "share/icons/hicolor/scalable/apps/" = ["data/org.precice.config_visualizer.svg"]
+"share/icons" = ["data/org.precice.config_visualizer.svg"]
 
 [tool.setuptools-git-versioning]
 enabled = true
