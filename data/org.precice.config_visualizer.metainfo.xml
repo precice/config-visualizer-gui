@@ -1,21 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
+  <!-- This file follows the ordered of https://docs.flathub.org/docs/for-app-authors/metainfo-guidelines/ -->
   <id>org.precice.config_visualizer</id>
-
-  <name>preCICE Config Visualizer</name>
-  <summary>A visualizer for preCICE configuration files</summary>
 
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
 
+  <name>preCICE Config Visualizer</name>
+  <summary>Interactive visualizer for preCICE configuration files</summary>
+
+  <developer id="org.precice">
+    <name>preCICE Developers</name>
+  </developer>
+
   <description>
-    <p>
-      The preCICE Config Visualizer visualizes preCICE configuration files as a graph.
-    </p>
-    <p>
-      This tool produces visual graph representation of the various participants, communicators and meshes defined in the setup and the movement of data between them.
-    </p>
+    <p>The preCICE Config Visualizer visualizes preCICE configuration files as an interactive graph.</p>
+    <p>This tool produces visual graph representation of the various participants, communicators and meshes defined in the setup and the movement of data between them.</p>
+    <p>Features include:</p>
+    <ul>
+      <li>Supports configurations of preCICE version 2 and 3</li>
+      <li>Reduce or hide various parts of information</li>
+      <li>Export in various formats</li>
+      <li>Export unprocessed dot for additional customization</li>
+      <li>Autoreload on file change</li>
+      <li>Copy PNG to clipboard for easy sharing</li>
+    </ul>
   </description>
 
   <launchable type="desktop-id">org.precice.config_visualizer.desktop</launchable>
+
+  <project_group>preCICE</project_group>
+
+  <branding>
+    <color type="primary" scheme_preference="light">#8ec5e8</color>
+    <color type="primary" scheme_preference="dark">#1a5fb4</color>
+  </branding>
+
+  <content_rating type="oars-1.0" />
+
+  <url type="bugtracker">https://github.com/precice/config-visualizer-gui/issues</url>
+  <url type="homepage">https://precice.org</url>
+  <url type="donation">https://precice.org/community-support-precice.html</url>
+  <url type="help">https://precice.org/tooling-config-visualization.html</url>
+  <url type="vcs-browser">https://github.com/precice/config-visualizer-gui</url>
+
+  <screenshots>
+    <screenshot type="default">
+      <image type="source">https://precice.org/images/docs/tooling/config-visualizer-gui-main.png</image>
+      <caption>Full information of the perpendicular flap tutorial.</caption>
+    </screenshot>
+    <screenshot>
+      <image type="source">https://precice.org/images/docs/tooling/config-visualizer-gui-heat-exchanger.png</image>
+      <caption>Coupling logic of the heat-exchanger tutorial with 3 participants.</caption>
+    </screenshot>
+  </screenshots>
+
+  <releases>
+    <release version="0.1.0" date="2024-04-17">
+      <url type="details">https://github.com/precice/config-visualizer-gui/releases/v0.1.0</url>
+      <description>Initial release of stand-alone GUI</description>
+    </release>
+  </releases>
+
 </component>
