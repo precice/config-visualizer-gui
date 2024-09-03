@@ -90,6 +90,9 @@ class ConfigVisualizerWindow(Gtk.Window):
         self.tool_save = Gtk.ToolButton(stock_id=Gtk.STOCK_SAVE_AS)
         self.tool_save.set_tooltip_text("Save as")
         self.tool_save.connect("clicked", self.on_export)
+        self.tool_edit = Gtk.ToolButton(stock_id=Gtk.STOCK_EDIT)
+        self.tool_edit.set_tooltip_text("Open in default application")
+        self.tool_edit.connect("clicked", self.on_editor)
         self.tool_copy = Gtk.ToolButton(stock_id=Gtk.STOCK_COPY)
         self.tool_copy.set_tooltip_text("Copy as image to clipboard")
         self.tool_copy.connect("clicked", self.on_copy)
@@ -119,6 +122,7 @@ class ConfigVisualizerWindow(Gtk.Window):
         self.toolbar.insert(Gtk.SeparatorToolItem(), -1)
         self.toolbar.insert(self.tool_save, -1)
         self.toolbar.insert(self.tool_copy, -1)
+        self.toolbar.insert(self.tool_edit, -1)
         self.toolbar.insert(Gtk.SeparatorToolItem(), -1)
         self.toolbar.insert(self.tool_refresh, -1)
         self.toolbar.insert(Gtk.SeparatorToolItem(), -1)
@@ -281,6 +285,11 @@ class ConfigVisualizerWindow(Gtk.Window):
             self.reload()
             self.monitor()
         dialog.destroy()
+
+    def on_editor(self, caller):
+        import pathlib
+        uri = pathlib.Path(self._filename).as_uri()
+        Gtk.show_uri_on_window(self, uri, Gdk.CURRENT_TIME)
 
     def on_copy(self, caller):
         width, height = map(ceil, self.dotwidget.graph.get_size())
