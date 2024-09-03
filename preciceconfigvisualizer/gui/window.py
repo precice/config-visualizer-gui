@@ -287,11 +287,16 @@ class ConfigVisualizerWindow(Gtk.Window):
         dialog.destroy()
 
     def on_editor(self, caller):
+        if self._filename is None:
+            return
         import pathlib
+
         uri = pathlib.Path(self._filename).as_uri()
         Gtk.show_uri_on_window(self, uri, Gdk.CURRENT_TIME)
 
     def on_copy(self, caller):
+        if self._filename is None:
+            return
         width, height = map(ceil, self.dotwidget.graph.get_size())
         surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, width, height)
         ctx = cairo.Context(surface)
@@ -303,11 +308,15 @@ class ConfigVisualizerWindow(Gtk.Window):
         clipboard.store()
 
     def on_copy_path(self, caller):
+        if self._filename is None:
+            return
         clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
         clipboard.set_text(self._filename, -1)
         clipboard.store()
 
     def on_export(self, caller):
+        if self._filename is None:
+            return
         dialog = Gtk.FileChooserDialog(
             "Export as",
             None,
