@@ -37,4 +37,3 @@ Now you can open XML files directly with the config-visualizer and see the appli
 ## Licensing
 
 The license was changed from GPLv3 to MIT in approval of the copyright holder Frédéric Simonis (@fsimonis frederic.simonis@ipvs.uni-stuttgart.de) decided on 24. June 2025 12:40 CET.
-
